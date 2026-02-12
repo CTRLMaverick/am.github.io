@@ -36,26 +36,35 @@
 </head>
 <body>
 
-  <h1>Will you go out with me? ❤️</h1>
+  <h1>Will you be my valentine? ❤️</h1>
 
   <button id="yesBtn">Yes</button>
   <button id="noBtn">No</button>
 
-  <script>
-    let yesSize = 18;
+ <script>
+  let yesSize = 18;
+  let noSize = 18;
 
-    document.getElementById("noBtn").addEventListener("click", function() {
-      yesSize += 10;
-      document.getElementById("yesBtn").style.fontSize = yesSize + "px";
+  const yesBtn = document.getElementById("yesBtn");
+  const noBtn = document.getElementById("noBtn");
 
-      // Optional: shrink the No button
-      this.style.fontSize = (yesSize - 8) + "px";
-    });
+  noBtn.addEventListener("click", function() {
+    // Make YES bigger
+    yesSize += 10;
+    yesBtn.style.fontSize = yesSize + "px";
 
-    document.getElementById("yesBtn").addEventListener("click", function() {
-      document.body.innerHTML = "<h1>Yay!!! 🎉❤️</h1>";
-    });
-  </script>
+    // Make NO smaller
+    noSize -= 2;
+    if (noSize > 8) {   // prevent it from disappearing completely
+      noBtn.style.fontSize = noSize + "px";
+    }
+  });
+
+  yesBtn.addEventListener("click", function() {
+    document.body.innerHTML = "<h1>Yay!!! 🎉❤️</h1>";
+  });
+</script>
 
 </body>
 </html>
+
